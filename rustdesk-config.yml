@@ -1,0 +1,38 @@
+# RustDesk Configuration File (optimized for performance)
+server:
+  id: "your-server-id"         # ID unique du serveur RustDesk
+  key: "/path/to/your/key.pem"  # Chemin vers le fichier de clé privée pour le chiffrement
+  relay: "relay.yourdomain.com" # Adresse de ton serveur relais
+  stun: "stun.yourdomain.com"   # Adresse de ton serveur STUN pour l'optimisation réseau
+  network:
+    tcp_timeout: 3000           # Timeout en millisecondes pour les connexions TCP
+    udp_port: 21116             # Port UDP pour les connexions peer-to-peer
+    buffer_size: 1048576        # Taille du buffer réseau pour optimiser les transferts
+
+security:
+  password: "SuperSecurePass!"  # Mot de passe pour sécuriser les connexions
+  encryption: enabled           # Chiffrement des connexions pour la sécurité
+
+performance:
+  video_compression: high       # Qualité de compression vidéo pour optimiser les performances
+  frame_rate: 30                # Limite des FPS pour économiser de la bande passante
+  bandwidth_limit: 10000        # Limite de bande passante en Kbps pour les connexions distantes
+  adaptive_quality: true        # Ajuste automatiquement la qualité en fonction du réseau
+
+logging:
+  level: "info"                 # Niveau de journalisation (debug, info, warn, error)
+  output: "/var/log/rustdesk.log" # Chemin du fichier de log
+  rotate: daily                 # Rotation journalière des fichiers de log pour éviter les surcharges
+
+resources:
+  cpu_usage_limit: 80           # Limite d'utilisation CPU en pourcentage pour éviter une surcharge
+  ram_usage_limit: 1024         # Limite de la mémoire vive utilisée par RustDesk en Mo
+
+notifications:
+  email_alerts: 
+    enabled: true
+    smtp_server: "smtp.yourmailserver.com"
+    smtp_port: 587
+    from: "alerts@yourdomain.com"
+    to: "admin@yourdomain.com"
+    subject: "RustDesk Performance Alert"
